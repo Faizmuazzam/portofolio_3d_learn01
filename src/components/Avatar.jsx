@@ -16,9 +16,9 @@ export function Avatar(props) {
   const { nodes, materials } = useGLTF('/models/modelAvatar.glb');
 
   const { headFollow, cursorFollow, wireframe} = useControls({
-    headFollow: false,
-    cursorFollow: false,
-    wireframe: false
+    // headFollow: false,
+    // cursorFollow: false,
+    // wireframe: false
   })
 
   const group = useRef();
@@ -64,14 +64,15 @@ export function Avatar(props) {
     <group {...props} ref={group} dispose={null}>
       <group rotation-x={-Math.PI / 2}>
         <primitive object={nodes.Hips} />
-        <skinnedMesh geometry={nodes.Wolf3D_Body.geometry} material={materials.Wolf3D_Body} skeleton={nodes.Wolf3D_Body.skeleton} />
-        <skinnedMesh geometry={nodes.Wolf3D_Outfit_Bottom.geometry} material={materials.Wolf3D_Outfit_Bottom} skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton} />
-        <skinnedMesh geometry={nodes.Wolf3D_Outfit_Footwear.geometry} material={materials.Wolf3D_Outfit_Footwear} skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton} />
-        <skinnedMesh geometry={nodes.Wolf3D_Outfit_Top.geometry} material={materials.Wolf3D_Outfit_Top} skeleton={nodes.Wolf3D_Outfit_Top.skeleton} />
-        <skinnedMesh geometry={nodes.Wolf3D_Hair.geometry} material={materials.Wolf3D_Hair} skeleton={nodes.Wolf3D_Hair.skeleton} />
-        <skinnedMesh geometry={nodes.Wolf3D_Glasses.geometry} material={materials.Wolf3D_Glasses} skeleton={nodes.Wolf3D_Glasses.skeleton} />
+        <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Body.geometry} material={materials.Wolf3D_Body} skeleton={nodes.Wolf3D_Body.skeleton} />
+        <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Outfit_Bottom.geometry} material={materials.Wolf3D_Outfit_Bottom} skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton} />
+        <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Outfit_Footwear.geometry} material={materials.Wolf3D_Outfit_Footwear} skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton} />
+        <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Outfit_Top.geometry} material={materials.Wolf3D_Outfit_Top} skeleton={nodes.Wolf3D_Outfit_Top.skeleton} />
+        <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Hair.geometry} material={materials.Wolf3D_Hair} skeleton={nodes.Wolf3D_Hair.skeleton} />
+        <skinnedMesh frustumCulled={false} geometry={nodes.Wolf3D_Glasses.geometry} material={materials.Wolf3D_Glasses} skeleton={nodes.Wolf3D_Glasses.skeleton} />
         <skinnedMesh
           name="EyeLeft"
+          frustumCulled={false}
           geometry={nodes.EyeLeft.geometry}
           material={nodes.EyeLeft.material}
           skeleton={nodes.EyeLeft.skeleton}
@@ -80,6 +81,7 @@ export function Avatar(props) {
         />
         <skinnedMesh
           name="EyeRight"
+          frustumCulled={false}
           geometry={nodes.EyeRight.geometry}
           material={nodes.EyeRight.material}
           skeleton={nodes.EyeRight.skeleton}
@@ -88,6 +90,7 @@ export function Avatar(props) {
         />
         <skinnedMesh
           name="Wolf3D_Head"
+          frustumCulled={false}
           geometry={nodes.Wolf3D_Head.geometry}
           material={materials.Wolf3D_Skin}
           skeleton={nodes.Wolf3D_Head.skeleton}
@@ -96,6 +99,7 @@ export function Avatar(props) {
         />
         <skinnedMesh
           name="Wolf3D_Teeth"
+          frustumCulled={false}
           geometry={nodes.Wolf3D_Teeth.geometry}
           material={materials.Wolf3D_Teeth}
           skeleton={nodes.Wolf3D_Teeth.skeleton}

@@ -2,8 +2,6 @@ import React from 'react';
 
 const Menu = ({ onSectionChange, menuOpened, setMenuOpened }) => {
 
-  console.log(menuOpened);
-
   return (
     <div className='btn-menu'>
       <button
